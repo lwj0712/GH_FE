@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>감귤하우스 - 회원가입</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Bootstrap 5 based Social Media Network and Community Theme">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	 
+</head>
+
+<body>
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+  <div class="container">
+    <div class="row justify-content-center align-items-center vh-100 py-5">
+      <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+        <!-- Sign up START -->
+        <div class="card card-body rounded-3 p-4 p-sm-5">
+          <div class="text-center">
+            <h1 class="mb-2">회원가입</h1>
+            <span class="d-block">계정이 있으신가요? <a href="/templates/login.html">로그인하기</a></span>
+          </div>
+          <!-- Form START -->
+          <form class="mt-4" id="signup-form">
+            <!-- Username -->
+            <div class="mb-3 input-group-lg">
+                <input type="text" 
+                       class="form-control" 
+                       id="username" 
+                       name="username" 
+                       placeholder="사용자명" 
+                       autocomplete="username"
+                       required>
+                <small class="form-text text-muted">150자 이하, 문자, 숫자 및 @/./+/-/_만 사용 가능</small>
+            </div>
+            
+            <!-- Email -->
+            <div class="mb-3 input-group-lg">
+                <input type="email" 
+                       class="form-control" 
+                       id="email" 
+                       name="email" 
+                       placeholder="이메일" 
+                       autocomplete="email"
+                       required>
+            </div>
+        
+            <!-- Password -->
+            <div class="mb-3 position-relative">
+                <div class="input-group input-group-lg">
+                    <input class="form-control fakepassword" 
+                           type="password" 
+                           id="password1" 
+                           name="password1" 
+                           placeholder="비밀번호" 
+                           autocomplete="new-password"
+                           required>
+                    <span class="input-group-text p-0">
+                        <i class="fakepasswordicon fa-solid fa-eye-slash cursor-pointer p-2 w-40px"></i>
+                    </span>
+                </div>
+            </div>
+        
+            <!-- Confirm password -->
+            <div class="mb-3 input-group-lg">
+                <input class="form-control" 
+                       type="password" 
+                       id="password2" 
+                       name="password2" 
+                       placeholder="비밀번호 확인" 
+                       autocomplete="new-password"
+                       required>
+            </div>
+        
+            <!-- Error message -->
+            <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
+        
+            <!-- Button -->
+            <div class="d-grid">
+                <button type="submit" class="btn btn-lg btn-primary">가입하기</button>
+            </div>
+        
+            <!-- Copyright -->
+            <p class="mb-0 mt-3 text-center">©2024 <a target="_blank" href="#">감귤하우스</a>. All rights reserved</p>
+          </form>
+          <!-- Form END -->
+        </div>
+        <!-- Sign up END -->
+      </div>
+    </div>
+  </div>
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+JS libraries, plugins and custom scripts -->
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Vendors -->
+<script src="assets/vendor/pswmeter/pswmeter.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+<!-- Custom signup script -->
+<script src="/templates/signup.js"></script>
+
+</body>
+</html>
