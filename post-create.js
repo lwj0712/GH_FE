@@ -9,7 +9,7 @@ function getJWTToken() {
 document.addEventListener('DOMContentLoaded', function() {
     // JWT 토큰이 없으면 로그인 페이지로 리다이렉트
     if (!getJWTToken()) {
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return;
     }
 
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const token = getJWTToken();
         if (!token) {
             alert('로그인이 필요합니다.');
-            window.location.href = '/templates/login.html';
+            window.location.href = 'login.html';
             return;
         }
 
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.status === 401) {
                 // 토큰이 만료되었거나 유효하지 않은 경우
                 localStorage.removeItem('jwt_token');
-                window.location.href = '/templates/login.html';
+                window.location.href = 'login.html';
                 throw new Error('인증이 만료되었습니다. 다시 로그인해주세요.');
             }
             if (!response.ok) {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             alert('게시물이 성공적으로 작성되었습니다.');
-            window.location.href = '/templates/index.html';  
+            window.location.href = 'index.html';  
         })
         .catch(error => {
             console.error('Error:', error);

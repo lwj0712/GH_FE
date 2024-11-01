@@ -63,7 +63,7 @@ async function submitReport() {
     const token = getJWTToken();
     if (!token || !isTokenValid(token)) {
         alert('세션이 만료되었습니다. 다시 로그인해주세요.');
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return;
     }
 
@@ -118,13 +118,13 @@ async function submitReport() {
 
         alert(data.detail || '신고가 성공적으로 접수되었습니다.');
         document.getElementById('report-form').reset();
-        window.location.href = '/templates/index.html';
+        window.location.href = 'index.html';
     } catch (error) {
         console.error('Error:', error);
         alert(error.message);
         
         if (error.message.includes('로그인') || error.message.includes('인증')) {
-            window.location.href = '/templates/login.html';
+            window.location.href = 'login.html';
         }
     }
 }

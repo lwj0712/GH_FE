@@ -26,7 +26,7 @@ function isLoggedIn() {
 async function fetchWithAuth(url, method = 'GET', body = null) {
     const token = getJWTToken();
     if (!token) {
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return null;
     }
 
@@ -47,7 +47,7 @@ async function fetchWithAuth(url, method = 'GET', body = null) {
     if (response.status === 401) {
         localStorage.removeItem('jwt_token');
         localStorage.removeItem('user');
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return null;
     }
 
@@ -56,7 +56,7 @@ async function fetchWithAuth(url, method = 'GET', body = null) {
 
 document.addEventListener('DOMContentLoaded', async function() {
     if (!isLoggedIn()) {
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return;
     }
 
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         await initializeSettingsPage(currentUser.uuid);
     } catch (error) {
         console.error('Failed to initialize page:', error);
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
     }
 });
 
@@ -87,7 +87,7 @@ function setupEventListeners(userId) {
     });
 
     document.getElementById('cancelBtn').addEventListener('click', function() {
-        window.location.href = `/templates/profile.html?uuid=${userId}`;
+        window.location.href = `profile.html?uuid=${userId}`;
     });
 
     document.getElementById('changePasswordBtn').addEventListener('click', function(e) {
@@ -98,7 +98,7 @@ function setupEventListeners(userId) {
     if (backToProfileLink) {
         backToProfileLink.addEventListener('click', function(e) {
             e.preventDefault();
-            window.location.href = `/templates/profile.html?uuid=${userId}`;
+            window.location.href = `profile.html?uuid=${userId}`;
         });
     }
 }
@@ -146,7 +146,7 @@ async function updatePrivacySettings(userId) {
         if (response && response.ok) {
             const data = await response.json();
             alert(data.detail || '설정이 성공적으로 업데이트되었습니다.');
-            window.location.href = `/templates/profile.html?uuid=${userId}`;
+            window.location.href = `profile.html?uuid=${userId}`;
         }
     } catch (error) {
         console.error('Error updating privacy settings:', error);
@@ -182,7 +182,7 @@ async function changePassword() {
 
         if (response && response.ok) {
             alert('비밀번호가 성공적으로 변경되었습니다.');
-            window.location.href = '/templates/login.html';
+            window.location.href = 'login.html';
         }
     } catch (error) {
         console.error('Error changing password:', error);

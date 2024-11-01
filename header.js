@@ -1,6 +1,6 @@
 // Constants and Config
 const API_BASE_URL = 'http://127.0.0.1:8000';
-const DEFAULT_PROFILE_IMAGE = '/templates/images/placeholder.jpg';
+const DEFAULT_PROFILE_IMAGE = 'images/placeholder.jpg';
 
 // JWT 관련 유틸리티 함수
 function getJWTToken() {
@@ -37,7 +37,7 @@ function isLoggedIn() {
 async function fetchWithAuth(url, method = 'GET', body = null) {
     const token = getJWTToken();
     if (!token && !url.includes('/login/')) {
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return null;
     }
 
@@ -58,7 +58,7 @@ async function fetchWithAuth(url, method = 'GET', body = null) {
     if (response.status === 401) {
         removeJWTToken();
         localStorage.removeItem('user');
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return null;
     }
 
@@ -160,11 +160,11 @@ function updateProfileDropdown(profileData) {
     if (dropdownEmail) dropdownEmail.textContent = profileData.email;
 
     if (viewProfileLink) {
-        viewProfileLink.href = `/templates/profile.html?uuid=${profileData.id}`;
+        viewProfileLink.href = `profile.html?uuid=${profileData.id}`;
     }
 
     if (profileSettingsLink) {
-        profileSettingsLink.href = `/templates/profile-settings.html?uuid=${profileData.id}`;
+        profileSettingsLink.href = `profile-settings.html?uuid=${profileData.id}`;
     }
 }
 
@@ -202,7 +202,7 @@ async function handleLogout(e) {
     e.preventDefault();
     removeJWTToken();
     localStorage.removeItem('user');
-    window.location.href = '/templates/login.html';
+    window.location.href = 'login.html';
 }
 
 // Notification Functions
@@ -510,7 +510,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 로그인 상태 체크
     if (!isLoggedIn()) {
         if (!window.location.pathname.includes('/login.html')) {
-            window.location.href = '/templates/login.html';
+            window.location.href = 'login.html';
             return;
         }
     }

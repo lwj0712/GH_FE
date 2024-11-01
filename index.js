@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // 토큰이 만료되었거나 유효하지 않은 경우
             if (response.status === 401) {
                 removeJWTToken();
-                window.location.href = '/templates/login.html';
+                window.location.href = 'login.html';
                 return null;
             }
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
             // 사용자 정보 처리 - 검색 결과와 일반 게시물 모두 처리
             const username = post.user ? post.user.username : post.username;
-            const profileImage = post.user?.profile_image || '/templates/images/placeholder.jpg';
+            const profileImage = post.user?.profile_image || 'images/placeholder.jpg';
     
             // 좋아요 관련 정보 처리
             const isLiked = post.is_liked || false;
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
             // 이미지 URL 처리
             const images = post.images || [];
-            const imageUrl = images.length > 0 ? images[0] : '/templates/images/placeholder.jpg';
+            const imageUrl = images.length > 0 ? images[0] : 'images/placeholder.jpg';
     
             postElement.innerHTML = `
                 <div class="card-header border-0 pb-0">
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <img src="${imageUrl}" 
                                  class="card-img-top" 
                                  alt="Post image"
-                                 onerror="this.src='/templates/images/placeholder.jpg'"
+                                 onerror="this.src='images/placeholder.jpg'"
                             >
                         </div>
                     ` : ''}
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
             userElement.classList.add('hstack', 'gap-2', 'mb-3');
             userElement.innerHTML = `
                 <div class="avatar">
-                    <img class="avatar-img rounded-circle" src="${user.profile_image || '/templates/images/placeholder.jpg'}" alt="${user.username}">
+                    <img class="avatar-img rounded-circle" src="${user.profile_image || 'images/placeholder.jpg'}" alt="${user.username}">
                 </div>
                 <div class="overflow-hidden">
                     <a class="h6 mb-0" href="#!">${user.username}</a>
@@ -460,7 +460,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target.closest('.post-detail-link')) {
             const element = e.target.closest('.post-detail-link');
             const postId = element.getAttribute('data-post-id');
-            window.location.href = `/templates/post-detail.html?id=${postId}`;
+            window.location.href = `post-detail.html?id=${postId}`;
         }
 
         // 댓글 버튼 클릭 시 상세 페이지로 이동
@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const button = e.target.closest('.comment-button');
             const postId = button.getAttribute('data-post-id');
-            window.location.href = `/templates/post-detail.html?id=${postId}#comments`;
+            window.location.href = `post-detail.html?id=${postId}#comments`;
         }
     }
 
@@ -482,7 +482,7 @@ document.addEventListener('DOMContentLoaded', function() {
     async function init() {
         // JWT 토큰이 없으면 로그인 페이지로 리다이렉트
         if (!getJWTToken()) {
-            window.location.href = '/templates/login.html';
+            window.location.href = 'login.html';
             return;
         }
 
