@@ -46,7 +46,7 @@
 
                 if (response.status === 401) {
                     localStorage.removeItem('jwt_token');
-                    window.location.href = '/templates/login.html';
+                    window.location.href = 'login.html';
                     return null;
                 }
 
@@ -80,7 +80,7 @@
                         reportButton.className = 'btn btn-danger-soft btn-sm mt-3';
                         reportButton.innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i> 신고';
                         reportButton.onclick = () => {
-                            window.location.href = `/templates/report-form.html?content_type=posts.post&object_id=${postId}`;
+                            window.location.href = `report-form.html?content_type=posts.post&object_id=${postId}`;
                         };
                         reportButtonContainer.appendChild(reportButton);
                     }
@@ -113,7 +113,7 @@
                 
                 if (response && response.status === 204) {
                     alert('게시물이 삭제되었습니다.');
-                    window.location.href = '/templates/index.html';
+                    window.location.href = 'index.html';
                 } else {
                     throw new Error('삭제 실패');
                 }
@@ -140,7 +140,7 @@
         // 게시물 상세 정보 표시
         function displayPostDetail(post) {
             document.getElementById('username').textContent = post.user.username;
-            document.getElementById('user-profile-image').src = post.user.profile_image || '/templates/images/placeholder.jpg';
+            document.getElementById('user-profile-image').src = post.user.profile_image || 'images/placeholder.jpg';
             document.getElementById('post-content').textContent = post.content;
             document.getElementById('post-date').textContent = new Date(post.created_at).toLocaleString();
             document.getElementById('likes-count').textContent = post.likes_count || 0;
@@ -196,7 +196,7 @@
                     <div class="d-flex">
                         <div class="avatar avatar-xs">
                             <img class="avatar-img rounded-circle" 
-                                src="${comment.user.profile_image || '/templates/images/placeholder.jpg'}" 
+                                src="${comment.user.profile_image || 'images/placeholder.jpg'}" 
                                 alt="${comment.user.username}">
                         </div>
                         <div class="ms-2 flex-grow-1">
@@ -248,7 +248,7 @@
                     <div class="d-flex">
                         <div class="avatar avatar-xs">
                             <img class="avatar-img rounded-circle" 
-                                 src="${reply.user.profile_image || '/templates/images/placeholder.jpg'}" 
+                                 src="${reply.user.profile_image || 'images/placeholder.jpg'}" 
                                  alt="${reply.user.username}">
                         </div>
                         <div class="ms-2">
@@ -479,7 +479,7 @@
 
         // 수정 버튼 클릭 이벤트
         document.getElementById('edit-post-btn')?.addEventListener('click', function() {
-            window.location.href = `/templates/post-edit.html?id=${postId}`; // postId를 id로 변경
+            window.location.href = `post-edit.html?id=${postId}`; // postId를 id로 변경
         });        
 
         // 삭제 버튼 클릭 이벤트
@@ -487,7 +487,7 @@
 
         // JWT 토큰 확인 및 초기 로드
         if (!getJWTToken()) {
-            window.location.href = '/templates/login.html';
+            window.location.href = 'login.html';
             return;
         }
         fetchPostDetail();

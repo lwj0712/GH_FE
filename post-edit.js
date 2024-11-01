@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('데이터를 로드하는 중 오류가 발생했습니다:', error);
             if (error.message === '인증이 필요합니다.') {
-                window.location.href = '/templates/login.html'; // 로그인 페이지로 리다이렉트
+                window.location.href = 'login.html'; // 로그인 페이지로 리다이렉트
             } else {
                 alert('게시물 데이터를 로드하는 중 오류가 발생했습니다.');
             }
@@ -136,12 +136,12 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             alert('게시물이 성공적으로 수정되었습니다.');
-            window.location.href = '/templates/index.html';  
+            window.location.href = 'index.html';  
         })
         .catch(error => {
             console.error('Error:', error);
             if (error.message === '인증이 필요합니다.') {
-                window.location.href = '/templates/login.html';
+                window.location.href = 'login.html';
             } else {
                 alert('게시물 수정 중 오류가 발생했습니다.');
             }

@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (!uuid) {
                 console.log('No UUID found, redirecting to login');
-                window.location.href = '/templates/login.html';
+                window.location.href = 'login.html';
                 return;
             }
         
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
             postCards.forEach(card => {
                 card.addEventListener('click', () => {
                     const postId = card.getAttribute('data-post-id');
-                    window.location.href = `/templates/post-detail.html?id=${postId}`;
+                    window.location.href = `post-detail.html?id=${postId}`;
                 });
             });
         } else {
@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function() {
             productCards.forEach(card => {
                 card.addEventListener('click', () => {
                     const productId = card.getAttribute('data-product-id');
-                    window.location.href = `/templates/product-detail.html?id=${productId}`;
+                    window.location.href = `product-detail.html?id=${productId}`;
                 });
             });
         } else {
@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             resultItem.addEventListener('click', function() {
                 // user.uuid 대신 user.id 사용
-                const newUrl = `/templates/profile.html?uuid=${user.id}`;
+                const newUrl = `profile.html?uuid=${user.id}`;
                 console.log('Navigating to:', newUrl);
                 window.location.href = newUrl;
             });
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 프로필 편집 버튼
         if (editProfileBtn) {
             editProfileBtn.addEventListener('click', () => {
-                window.location.href = '/templates/edit-profile.html';
+                window.location.href = 'edit-profile.html';
             });
         }
     
@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function() {
             profileSettingsBtn.addEventListener('click', () => {
                 const currentUser = getCurrentUser();
                 if (currentUser?.uuid) {
-                    window.location.href = `/templates/profile-settings.html?uuid=${currentUser.uuid}`;
+                    window.location.href = `profile-settings.html?uuid=${currentUser.uuid}`;
                 }
             });
         }

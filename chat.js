@@ -38,7 +38,7 @@ function getCurrentUser() {
 async function fetchWithAuth(url, method = 'GET', body = null) {
     const token = getToken();
     if (!token && !url.includes('/login/')) {
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return null;
     }
 
@@ -59,7 +59,7 @@ async function fetchWithAuth(url, method = 'GET', body = null) {
     if (response.status === 401) {
         removeJWTToken();
         localStorage.removeItem('user');
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return null;
     }
 
@@ -257,7 +257,7 @@ async function displayChatRooms(chatRooms) {
             e.preventDefault();
             e.stopPropagation();
             if (otherUser.uuid) {
-                window.location.href = `/templates/profile.html?uuid=${otherUser.uuid}`;
+                window.location.href = `profile.html?uuid=${otherUser.uuid}`;
             }
         });
 
@@ -998,7 +998,7 @@ async function initChat() {
         // JWT 토큰 확인
         const token = getToken();
         if (!token) {
-            window.location.href = '/templates/login.html';
+            window.location.href = 'login.html';
             return;
         }
 
@@ -1054,7 +1054,7 @@ async function refreshToken() {
     } catch (error) {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         throw error;
     }
 }
@@ -1084,7 +1084,7 @@ async function fetchWithCSRF(url, method = 'GET', body = null) {
                 options.headers['Authorization'] = `Bearer ${token}`;
                 response = await fetch(url, options);
             } catch (error) {
-                window.location.href = '/templates/login.html';
+                window.location.href = 'login.html';
                 throw new Error('Authentication failed. Please log in again.');
             }
         }

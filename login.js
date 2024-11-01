@@ -27,7 +27,7 @@ function removeCurrentUser() {
 function getGoogleOAuthURL() {
     const rootUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
     const options = {
-        redirect_uri:'http://127.0.0.1:5500/templates/google-callback.html',
+        redirect_uri:'http://127.0.0.1:5500google-callback.html',
         client_id: GOOGLE_CLIENT_ID,
         response_type: 'token',  // token으로 변경
         prompt: 'consent',
@@ -49,7 +49,7 @@ async function handleGoogleCallback() {
 
     if (!accessToken) {
         alert('Google 로그인에 실패했습니다.');
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return;
     }
 
@@ -83,12 +83,12 @@ async function handleGoogleCallback() {
         if (userResponse.ok) {
             const userData = await userResponse.json();
             localStorage.setItem('user', JSON.stringify(userData));
-            window.location.href = '/templates/index.html';
+            window.location.href = 'index.html';
         }
     } catch (error) {
         console.error('Google 로그인 오류:', error);
         alert('로그인 처리 중 오류가 발생했습니다.');
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
     }
 }
 
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 이미 로그인된 상태라면 메인 페이지로 리다이렉트
     if (getJWTToken() && localStorage.getItem('user')) {
-        window.location.href = '/templates/index.html';
+        window.location.href = 'index.html';
         return;
     }
 
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }));
 
             // 로그인 성공 시 리다이렉트
-            window.location.href = '/templates/index.html';
+            window.location.href = 'index.html';
         } catch (error) {
             console.error('로그인 오류:', error);
             errorMessage.textContent = error.message;

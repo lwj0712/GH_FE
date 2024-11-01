@@ -1,5 +1,5 @@
 const API_BASE_URL = 'http://127.0.0.1:8000';
-const DEFAULT_PROFILE_IMAGE = '/templates/images/placeholder.jpg';
+const DEFAULT_PROFILE_IMAGE = 'images/placeholder.jpg';
 
 // JWT Token Utilities
 function getJWTToken() {
@@ -44,7 +44,7 @@ function getFullImageUrl(imageUrl) {
 async function fetchWithAuth(url, method = 'GET', body = null) {
     const token = getJWTToken();
     if (!token) {
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return null;
     }
 
@@ -68,7 +68,7 @@ async function fetchWithAuth(url, method = 'GET', body = null) {
     if (response.status === 401) {
         localStorage.removeItem('jwt_token');
         localStorage.removeItem('user');
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return null;
     }
 
@@ -77,7 +77,7 @@ async function fetchWithAuth(url, method = 'GET', body = null) {
 
 document.addEventListener('DOMContentLoaded', function() {
     if (!isLoggedIn()) {
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
         return;
     }
 
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 if (backToProfileLink && profileData.id) {
-                    backToProfileLink.href = `/templates/profile.html?uuid=${profileData.id}`;
+                    backToProfileLink.href = `profile.html?uuid=${profileData.id}`;
                 }
     
                 // 로컬 스토리지 사용자 정보 업데이트
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }));
                     
                     alert('프로필이 성공적으로 수정되었습니다.');
-                    window.location.href = `/templates/profile.html?uuid=${updatedProfile.id}`;
+                    window.location.href = `profile.html?uuid=${updatedProfile.id}`;
                 }
             } else if (response) {
                 const errorData = await response.json();

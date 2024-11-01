@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
             alert('회원가입에 성공했습니다!');
             
-            window.location.href = '/templates/index.html';
+            window.location.href = 'index.html';
         } catch (error) {
             alert(error.message || '회원가입 중 오류가 발생했습니다.');
             errorMessage.textContent = error.message || '회원가입 중 오류가 발생했습니다.';
@@ -156,6 +156,6 @@ const authUtils = {
     logout() {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
-        window.location.href = '/templates/login.html';
+        window.location.href = 'login.html';
     }
 };
