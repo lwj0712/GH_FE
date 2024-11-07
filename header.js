@@ -1,5 +1,5 @@
 // Constants and Config
-const API_BASE_URL = 'http://127.0.0.1:8000';
+const API_BASE_URL = 'http://3.35.220.139';
 const DEFAULT_PROFILE_IMAGE = 'images/placeholder.jpg';
 
 // JWT 관련 유틸리티 함수

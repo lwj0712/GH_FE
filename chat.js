@@ -351,7 +351,7 @@ function setupChatWebSocket(roomId) {
     }
 
     const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const wsUrl = `${wsProtocol}//127.0.0.1:8000/ws/chat/${roomId}/?token=${token}`;
+    const wsUrl = `${wsProtocol}//3.35.220.139/ws/chat/${roomId}/?token=${token}`;
     
     console.log('Attempting to connect to chat WebSocket:', wsUrl);
 
