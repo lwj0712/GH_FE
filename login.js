@@ -1,5 +1,5 @@
 // Constants
-const API_BASE_URL = 'http://3.35.220.139';
+const API_BASE_URL = 'https://gamgyulhouse.store';
 const GOOGLE_CLIENT_ID = '794898515305-u193grbieboe2mtotlqsi6r1c3olqdvb.apps.googleusercontent.com'; // Google Cloud Console에서 받은 클라이언트 ID
 
 // JWT 토큰 관리 유틸리티

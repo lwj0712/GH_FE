@@ -20,7 +20,7 @@
                 }
 
                 console.log('Sending request to server...');
-                const response = await fetch('http://3.35.220.139/accounts/google/', {
+                const response = await fetch('https://gamgyulhouse.store/accounts/google/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -62,7 +62,7 @@
                 localStorage.setItem('jwt_token', jwtToken);
 
                 // 사용자 정보 요청
-                const userResponse = await fetch('http://3.35.220.139/accounts/current-user/', {
+                const userResponse = await fetch('https://gamgyulhouse.store/accounts/current-user/', {
                     headers: {
                         'Authorization': `Bearer ${jwtToken}`,
                         'Content-Type': 'application/json'

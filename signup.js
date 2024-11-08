@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://3.35.220.139';
+const API_BASE_URL = 'https://gamgyulhouse.store';
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('signup-form');
