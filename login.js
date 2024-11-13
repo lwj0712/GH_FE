@@ -27,7 +27,7 @@ function removeCurrentUser() {
 function getGoogleOAuthURL() {
     const rootUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
     const options = {
-        redirect_uri:'http://127.0.0.1:5500google-callback.html',
+        redirect_url:'https://gh-fe.vercel.app/google-callback.html',
         client_id: GOOGLE_CLIENT_ID,
         response_type: 'token',  // token으로 변경
         prompt: 'consent',
